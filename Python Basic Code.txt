@@ -1,0 +1,2483 @@
+// 06-06-2019
+
+(User) C:\Users\Nitin>ipython --pylab
+Python 3.5.2 |Enthought, Inc. (x86)| (default, Mar  2 2017, 16:37:47) [MSC v.1900 3
+2 bit (Intel)]
+Type "copyright", "credits" or "license" for more information.
+
+IPython 5.3.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+Using matplotlib backend: Qt4Agg
+
+In [1]: x=linspace(0,2*pi,50)
+
+In [2]: plot(x,sin(x))
+Out[2]: [<matplotlib.lines.Line2D at 0x4a3bc90>]
+
+In [3]: x[0]
+Out[3]: 0.0
+
+In [4]: x[49]
+Out[4]: 6.2831853071795862
+
+In [5]: plot(x,y)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-5-5ab71f77a729> in <module>()
+----> 1 plot(x,y)
+
+NameError: name 'y' is not defined
+
+In [6]:
+
+In [6]: xlabel('x')
+Out[6]: <matplotlib.text.Text at 0x4a14850>
+
+In [7]: ylabel('sin(x)')
+Out[7]: <matplotlib.text.Text at 0x4a279d0>
+
+In [8]: clf()
+
+In [9]: y=linspace(0,2*pi,50)
+
+In [10]: plot(y,sin(2*y))
+Out[10]: [<matplotlib.lines.Line2D at 0x4b44410>]
+
+In [11]: xlabel('y')
+Out[11]: <matplotlib.text.Text at 0x4a60350>
+
+In [12]: ylabel('sin(2y)')
+Out[12]: <matplotlib.text.Text at 0x4a60f70>
+
+In [13]: title('Sinusoids')
+Out[13]: <matplotlib.text.Text at 0x4b32490>
+
+In [14]: legend(['sin(2y)'])
+Out[14]: <matplotlib.legend.Legend at 0x4b59370>
+
+In [15]: legend(['sin(2y)'],loc='center')
+Out[15]: <matplotlib.legend.Legend at 0x4b6f730>
+
+In [16]: plot(y,cos(y),'r')
+Out[16]: [<matplotlib.lines.Line2D at 0x4b4a6b0>]
+
+In [17]: clf()
+
+In [18]: plot(y,sin(y),'g',linewidth=2)
+Out[18]: [<matplotlib.lines.Line2D at 0x4f32090>]
+
+In [19]: annotate('local max',xy=(1.5,1))
+Out[19]: <matplotlib.text.Annotation at 0x4b44570>
+
+In [20]: savefig('sin.png')
+
+In [21]: close()
+
+In [22]: y=linspace(0,2*pi,50)
+
+In [23]: clf()
+
+In [24]: plot(y,sin(y))
+Out[24]: [<matplotlib.lines.Line2D at 0x516b990>]
+
+In [25]: plot(y,cos
+    ...: (y))
+Out[25]: [<matplotlib.lines.Line2D at 0x514a5f0>]
+
+In [26]: xlabel('y')
+Out[26]: <matplotlib.text.Text at 0x514af10>
+
+In [27]: ylabel('f(y)')
+Out[27]: <matplotlib.text.Text at 0x514ddf0>
+
+In [28]: legend(['sin(y)','cos(y)'])
+Out[28]: <matplotlib.legend.Legend at 0x4f68110>
+
+In [29]: clf()
+
+In [30]: figure(1)
+Out[30]: <matplotlib.figure.Figure at 0x4b3d290>
+
+In [31]: plot(y,sin(y))
+Out[31]: [<matplotlib.lines.Line2D at 0x4a87190>]
+
+In [32]: figure(2)
+Out[32]: <matplotlib.figure.Figure at 0x4a83bb0>
+
+In [33]: plot(y,cos
+    ...: (y))
+Out[33]: [<matplotlib.lines.Line2D at 0x4f9a390>]
+
+In [34]: savefig('cosine.png')
+
+In [35]: figure(1)
+Out[35]: <matplotlib.figure.Figure at 0x4b3d290>
+
+In [36]: title('sin(y)')
+Out[36]: <matplotlib.text.Text at 0x4f5cd50>
+
+In [37]: savefig('sine.png')
+
+In [38]: close()
+
+In [39]: close()
+
+In [40]: xmin,xmax=xlim()
+
+In [41]: ymin,ymax=ylim()
+
+In [42]: print(xmin,ymax)
+0.0 1.0
+
+In [43]: xlim(xmin,2*pi)
+Out[43]: (0.0, 6.283185307179586)
+
+In [44]: ylim(ymin-0.2,ymax+0.2)
+Out[44]: (-0.20000000000000001, 1.2)
+
+In [45]: plot?
+Signature: plot(*args, **kwargs)
+Docstring:
+Plot lines and/or markers to the
+:class:`~matplotlib.axes.Axes`.  *args* is a variable length
+argument, allowing for multiple *x*, *y* pairs with an
+optional format string.  For example, each of the following is
+legal::
+
+    plot(x, y)        # plot x and y using default line style and color
+    plot(x, y, 'bo')  # plot x and y using blue circle markers
+    plot(y)           # plot y using x as index array 0..N-1
+    plot(y, 'r+')     # ditto, but with red plusses
+
+
+In [65]: %hist -n
+   1: x=linspace(0,2*pi,50)
+   2: plot(x,sin(x))
+   3: x[0]
+   4: x[49]
+   5: plot(x,y)
+   6: xlabel('x')
+   7: ylabel('sin(x)')
+   8: clf()
+   9: y=linspace(0,2*pi,50)
+  10: plot(y,sin(2*y))
+  11: xlabel('y')
+  12: ylabel('sin(2y)')
+  13: title('Sinusoids')
+  14: legend(['sin(2y)'])
+  15: legend(['sin(2y)'],loc='center')
+  16: plot(y,cos(y),'r')
+  17: clf()
+  18: plot(y,sin(y),'g',linewidth=2)
+  19: annotate('local max',xy=(1.5,1))
+  20: savefig('sin.png')
+  21: close()
+  22: y=linspace(0,2*pi,50)
+  23: clf()
+  24: plot(y,sin(y))
+  25:
+plot(y,cos
+(y))
+  26: xlabel('y')
+  27: ylabel('f(y)')
+  28: legend(['sin(y)','cos(y)'])
+  29: clf()
+  30: figure(1)
+  31: plot(y,sin(y))
+  32: figure(2)
+  33:
+plot(y,cos
+(y))
+  34: savefig('cosine.png')
+  35: figure(1)
+  36: title('sin(y)')
+  37: savefig('sine.png')
+  38: close()
+  39: close()
+  40: xmin,xmax=xlim()
+  41: ymin,ymax=ylim()
+  42: print(xmin,ymax)
+  43: xlim(xmin,2*pi)
+  44: ylim(ymin-0.2,ymax+0.2)
+  45: plot?
+  46:  q
+  47: Q
+  48: q
+  49: plot??
+  50: plot(x,-x)
+  51: clf()
+  52: close()
+  53: plot(x,-x)
+  54: plot(sin(x),xsin(x))
+  55: plot(sin(x),x sin(x))
+  56: plot(sin(x),x sin(x))
+  57: close()
+  58: x=linspace(-5*pi,5*pi,500)
+  59: plot(x,x,'b')
+  60: plot(x,-x,'b')
+  61: plot(x,sin(x),'g',linewidth=2)
+  62: plot(x,x*sin(x),'r',linewidth=3)
+  63: %hist
+  64: %hist n
+  65: %hist -n
+
+In [66]: %save fout_plot.py 59-62
+The following commands were written to file `fout_plot.py`:
+plot(x,x,'b')
+plot(x,-x,'b')
+plot(x,sin(x),'g',linewidth=2)
+plot(x,x*sin(x),'r',linewidth=3)
+
+In [67]: clf()
+
+In [68]: plot(x,x,'b')
+Out[68]: [<matplotlib.lines.Line2D at 0x533a5d0>]
+
+In [69]: plot(x,-x,'b')
+Out[69]: [<matplotlib.lines.Line2D at 0x531e610>]
+
+In [70]: plot(x,sin(x),'g',linewidth=2)
+Out[70]: [<matplotlib.lines.Line2D at 0x5322590>]
+
+In [71]: plot(x,x*sin(x),'r',linewidth=3)
+Out[71]: [<matplotlib.lines.Line2D at 0x531e7d0>]
+
+In [72]: legend(['x','-x','sinx','xsinx'])
+Out[72]: <matplotlib.legend.Legend at 0x69bae90>
+
+In [73]: annotate('origin',xy=(0,0))
+Out[73]: <matplotlib.text.Annotation at 0x69cbe90>
+
+In [74]: xlim(-5*pi,5*pi)
+Out[74]: (-15.707963267948966, 15.707963267948966)
+
+In [75]: ylim(-5*pi,5*pi)
+Out[75]: (-15.707963267948966, 15.707963267948966)
+
+
+
+****************************************************
+
+from pylab import *
+
+time = [0., 1., 2., 3]
+distance = [7., 11, 15, 19]
+plot(time,distance)
+xlabel('time')
+ylabel('distance')
+
+
+plot(time, distance,'o')
+clf()
+plot(time, distance,'.')
+clf()
+plot(time, distance,'--')
+
+
+mtlist = []
+p = [ 2, 3, 5, 7]
+print(p[1])
+print(p[1:3])
+print(p[0:-1])
+print(p[1:])
+print(p[0:4:2])
+print(p[0::2])
+print(p[::3])
+print(p[::-1])
+print(p[1::2])
+print(p[1:-1:2])
+
+b = [ 11, 13, 17 ]
+c = p + b
+print(c)
+
+L = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
+t = [0.90, 1.19, 1.30,1.47, 1.58, 1.77, 1.83]
+print(len(L),len(t))
+
+tsq = []
+for time in t:
+    tsq.append(time*time)
+    
+    
+print(len(L),len(t),len(tsq))
+show()
+
+
+
+
+
+
+*****************************************************
+
+
+def mysum(a,b):
+    return a+b
+
+
+mysum(1,2)
+Out[26]: 3
+
+t = array(t)
+
+tsq = t*t
+
+print(tsq)
+[ 0.81    1.4161  1.69    2.1609  2.4964  3.1329  3.3489]
+
+plot(L,tsq)
+Out[30]: [<matplotlib.lines.Line2D at 0x740b270>]
+
+t = range(1000000)
+
+tsq = sqr(t)
+
+t = array(t)
+
+tsq = t*t
+
+%timeit sqr(t)
+C:\Users\Nitin\proj1.py:41: RuntimeWarning: overflow encountered in long_scalars
+  result.append(x*x)
+1 loop, best of 3: 3.63 s per loop
+
+def sqr(arr):
+    result = []
+    for x in arr:    
+        result.append(x*x)
+    return result
+
+
+x=range(3, 20, 2)
+
+print(x)
+range(3, 20, 2)
+
+x=range(3, 20, 2)
+
+a=[1,2,3,4,5,6]
+
+b=[6]
+
+a+b
+Out[42]: [1, 2, 3, 4, 5, 6, 6]
+
+a.append(7)
+
+print(a+b)
+[1, 2, 3, 4, 5, 6, 7, 6]
+
+a=[1,2,3,4,5,6]
+
+a[::-2]
+Out[46]: [6, 4, 2]
+
+a=[1,2,3,4,5,6]
+
+a[1:4:-2]
+Out[48]: []
+
+a=[0,2,4]
+
+len(a)
+Out[50]: 3
+
+a=[0,1,2,3,4]
+
+print(a[5])
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-52-dcc45c5ce130> in <module>()
+----> 1 print(a[5])
+
+IndexError: list index out of range 
+
+a = array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) 
+
+a[2,0:3]
+Out[54]: array([7, 8, 9])
+
+a[1,2]
+Out[55]: 6
+
+
+
+A[1, 2]
+
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-56-f3c5392c8978> in <module>()
+----> 1 A[1, 2]
+
+NameError: name 'A' is not defined 
+  File "<ipython-input-57-be06a8cbb76f>", line 1
+    ---------------------------------------------------------------------------
+                                                                               ^
+SyntaxError: invalid syntax 
+
+a[1,2]
+Out[58]: 6
+
+a= [1,2]
+
+a = array([1,2,3,4])
+
+b = array([2,3,4,5])
+
+print(a[1],a[-1])
+2 4
+
+a+b
+Out[63]: array([3, 5, 7, 9])
+
+a*b
+Out[64]: array([ 2,  6, 12, 20])
+
+a/b
+Out[65]: array([ 0.5       ,  0.66666667,  0.75      ,  0.8       ])
+
+a//b
+Out[66]: array([0, 0, 0, 0], dtype=int32)
+
+a = array([1.,2,3,4])
+
+a/b
+Out[68]: array([ 0.5       ,  0.66666667,  0.75      ,  0.8       ])
+
+x=linspace(0.0, 10.0, 200)
+
+x *= 2*pi/10
+
+y = sin(x)
+
+y = cos(x)
+
+x[0] = -1
+
+print(x[0], x[-1])
+-1.0 6.28318530718
+
+x = array([1.,2,3,4])
+
+size(x)
+Out[76]: 4
+
+x.dtype
+Out[77]: dtype('float64')
+
+x.shape
+Out[78]: (4,)
+
+rank(x)
+-c:1: VisibleDeprecationWarning: `rank` is deprecated; use the `ndim` attribute or function instead. To find the rank of a matrix see `numpy.linalg.matrix_rank`.
+Out[79]: 1
+
+x.itemsize
+Out[80]: 8
+
+
+a = array([[0,1,2,3],[10,11,12,13]])
+
+a.shape
+Out[83]: (2, 4)
+
+a[1,3]
+Out[84]: 13
+
+a[1,3]=-1
+
+a[1]
+Out[86]: array([10, 11, 12, -1])
+
+a[1]=0
+
+a = array([[1,2,3],[4,5,6],[7,8,9]])
+
+a.shape
+Out[89]: (3, 3)
+
+a[0,1:3]
+Out[90]: array([2, 3])
+
+a[1:,1:]
+Out[91]: 
+array([[5, 6],
+       [8, 9]])
+
+a[:,2]
+Out[92]: array([3, 6, 9])
+
+a[0::2,0::2]
+Out[93]: 
+array([[1, 3],
+       [7, 9]])
+
+a=array([1,2,3], dtype=float)
+
+ones_like(a)
+Out[95]: array([ 1.,  1.,  1.])
+
+ones((2,3))
+Out[96]: 
+array([[ 1.,  1.,  1.],
+       [ 1.,  1.,  1.]])
+
+identity(3)
+Out[97]: 
+array([[ 1.,  0.,  0.],
+       [ 0.,  1.,  0.],
+       [ 0.,  0.,  1.]])
+
+pwd
+Out[98]: 'C:\\Users\\Nitin'
+x=loadtext('pendulum.txt')
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-99-6db18b4d323f> in <module>()
+----> 1 x=loadtext('pendulum.txt')
+
+NameError: name 'loadtext' is not defined 
+
+x=loadtxt('pendulum.txt')
+
+x.shape
+Out[101]: (90, 2)
+
+x, y = loadtxt('pendulum.txt',unpack=True)
+
+x.shape
+Out[103]: (90,)
+
+L, t = loadtxt('pendulum.txt',unpack=True)
+
+plot(L, t*t, '.')
+Out[105]: [<matplotlib.lines.Line2D at 0xe28450>]
+
+mean(L)
+Out[106]: 0.54499999999999993
+
+std(L)
+Out[107]: 0.25979158313283873
+
+a=imread('lena.png')
+
+imshow(a)
+Out[3]: <matplotlib.image.AxesImage at 0x5a66bd0>
+
+a.shape
+Out[4]: (512, 512, 4)
+
+rank(a)
+-c:1: VisibleDeprecationWarning: `rank` is deprecated; use the `ndim` attribute or function instead. To find the rank of a matrix see `numpy.linalg.matrix_rank`.
+Out[5]: 3
+
+*******************************************************************
+//07-06-2019
+
+//crop image to get left top corner
+
+b=a[:256,:256]
+
+b.shape
+Out[7]: (256, 256, 4)
+
+imshow(b)
+Out[8]: <matplotlib.image.AxesImage at 0x5aae490>
+
+//crop image to get face
+
+imshow(a[200:400,200:400])
+Out[18]: <matplotlib.image.AxesImage at 0x5bd5490>
+
+//crop image to remove unwanted pixels
+
+imshow(a[::2,::2])
+Out[19]: <matplotlib.image.AxesImage at 0x5be21f0>
+
+
+// data types
+
+a=13
+
+b=9999999999999999999
+
+c=3+4j
+
+c=complex(3,4)
+
+t=True
+
+F= not t
+
+F or t
+Out[26]: True
+
+F and t
+
+Out[27]: False
+
+a=False
+
+b=True
+
+c=True
+
+ (a and b) or c
+Out[32]: True
+
+a and (b or c)
+Out[33]: False
+
+'This is a string'
+Out[35]: 'This is a string'
+
+'this too!'
+Out[36]: 'this too!'
+
+""" this one too """
+Out[37]: ' this one too '
+
+''' and one more '''
+Out[38]: ' and one more '
+
+' " Do or do not. Not try " said Yoda.'
+Out[39]: ' " Do or do not. Not try " said Yoda.'
+
+""" The quick brown for jumped over lazy .... """
+Out[40]: ' The quick brown for jumped over lazy .... '
+
+w = "hello"
+
+print(w[0], w[1], w[-1])
+h e o
+
+len(w)
+Out[43]: 5
+
+w[0]='H'
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-44-c61ee9240f1c> in <module>()
+----> 1 w[0]='H'
+
+TypeError: 'str' object does not support item assignment 
+
+
+a=1.0
+
+type(a)
+Out[46]: float
+
+type(1)
+Out[47]: int
+
+type(1+1j)
+Out[48]: complex
+
+type('hello')
+Out[49]: str
+
+1786 % 12
+Out[50]: 10
+
+45%2
+Out[51]: 1
+
+864675 % 10
+Out[52]: 5
+
+3124 * 126789
+Out[53]: 396088836
+
+big=123456789123456789 ** 3
+
+verybig=big *big *big *big
+
+big
+Out[56]: 1881676377434183981909562699940347954480361860897069
+
+verybig
+Out[57]: 12536598903329366187366602453637834523513900340514681990694177938853001286963089597513186328270383939298923641110340456447058221912767480641620897695065961403207129435677004066945018482594529234494366959121
+
+17 / 2
+Out[58]: 8.5
+
+17 / 2.0
+Out[59]: 8.5
+
+17.0 / 2
+Out[60]: 8.5
+
+17.0 / 8.5
+Out[61]: 2.0
+
+a=7546
+
+a +=1
+
+a
+Out[64]: 7547
+
+a -=5
+
+a
+Out[66]: 7542
+
+a *=2
+
+a
+Out[68]: 15084
+
+c=3+4j
+
+c.imag
+Out[70]: 4.0
+
+c.real
+Out[71]: 3.0
+
+c.conjugate()
+Out[72]: (3-4j)
+
+
+a='Hello World'
+
+a.startswith('Hell')
+Out[78]: True
+
+a.endswith('id')
+Out[79]: False
+
+a.upper()
+Out[80]: 'HELLO WORLD'
+
+a.lower()
+Out[81]: 'hello world'
+
+a= '  Hello World  '
+
+b=a.strip()
+
+b
+Out[84]: 'Hello World'
+
+b.index('ll')
+Out[85]: 2
+
+b.index('ww')
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-86-5768460ef945> in <module>()
+----> 1 b.index('ww')
+
+ValueError: substring not found 
+
+b.replace('Hello','Goodbye')
+Out[87]: 'Goodbye World'
+
+
+***********************************************
+chars ='a b c'
+
+chars.split()
+Out[89]: ['a', 'b', 'c']
+
+' '.join(['a','b','c'])
+Out[90]: 'a b c'
+
+alpha=','.join(['a','b','c'])
+
+alpha
+Out[92]: 'a,b,c'
+
+alpha.split(',')
+Out[93]: ['a', 'b', 'c']
+
+'_'.join(['a','b','c'])
+Out[94]: 'a_b_c'
+
+*******************************************
+x=input("Enter a string:")
+
+Enter a string:Deepti
+
+print("hello",x)
+hello Deepti
+
+******************************************
+x=input("Please enter your name: ")
+
+Please enter your name: Deepti
+
+print("hello",x)
+hello Deepti
+
+*******************************************
+b=input()
+
+2
+
+st=int(b)
+
+print(st*st)
+4
+
+b=input("")
+
+4
+
+st=int(b)
+
+print(st*st)
+16
+
+stlen=str(st*st)
+
+print(len(stlen))
+2
+
+
+*************************************
+m=input()
+
+1+2j
+
+n=complex(c)
+
+print(n.real," ",n.imag)
+1.0   2.0
+
+print(abs(n))
+2.23606797749979
+
+print(n.conjugate())
+(1-2j)
+
+
+*************************************
+m=input()
+
+25
+
+x=int(m)
+
+print(x%2==1)
+True
+
+m=input()
+
+36
+
+x=int(m)
+
+print(x%2==1)
+False
+
+****************************************
+m=input()
+
+48
+
+x=int(m)
+
+print(x%2==0)
+True
+
+m=input()
+
+35
+
+x=int(m)
+
+print(x%2==0)
+False
+
+*************************************
+m=input()
+
+Deepti
+
+print(m.upper())
+DEEPTI
+
+m=input()
+
+hello
+
+print(m.upper())
+HELLO
+
+********************************
+m=input()
+
+abc
+
+print(m+".txt")
+abc.txt
+
+***********************************
+m=input()
+
+abcd
+
+m[1:]
+Out[173]: 'bcd'
+
+m[:-1]
+Out[174]: 'abc'
+
+m[::-1]
+Out[175]: 'dcba'
+
+m[::2]
+Out[176]: 'ac'
+
+*******************************************
+m=input()
+
+helloworld
+
+n=(m.count('a')+m.count('e')+m.count('i')+m.count('o')+m.count('u'))
+
+print(n)
+3
+
+*************************************************
+x=input().lower()
+
+hello
+
+print('abc' in x or 'def' in x)
+False
+
+
+*********************************************
+----   08-06-2019  ------
+********************************************
+x=int(input())
+
+38
+
+a=y//10
+
+b=y%10
+
+print('a=',a,'b=',b)
+a= 3 b= 8
+
+**************************************************
+while b < 30:
+    print(b, end=' ')
+    next=a+b
+    a=b
+    b=next
+    
+1 1 2 3 5 8 13 21 
+
+***** OR ****
+
+a, b = 0, 1
+
+while b < 30:
+    print(b, end=' ')
+    a,b = b, a+b
+    
+1 1 2 3 5 8 13 21 
+
+*************************************
+for i in range(5):
+    print(i,i*i)
+    
+0 0
+1 1
+2 4
+3 9
+4 16
+
+******************************
+for i in range(3,10,2):
+    print(i,i*i)
+    
+3 9
+5 25
+7 49
+9 81
+
+***********************************
+a, b = 0, 1
+
+for i in range(8):   
+    print(b, end=' ')
+    a,b = b, a+b
+    
+1 1 2 3 5 8 13 21 
+
+***********************************
+a, b = 0, 1
+
+while b<500:
+    if b%4==0:
+        print(b)
+        break
+    a,b=b,a+b
+    
+8
+
+******************************
+for n in range(1,10,2):
+    if n%3==0:
+        continue
+    print(n*n)
+    
+1
+25
+49
+
+******check whether a number is armstrong or not ************
+x=153
+
+a=x//100
+
+b=(x%100)//10
+
+c=x%10
+
+(a**3 + b**3 + c**3) == x
+Out[19]: True
+
+******** armstrong numbers btw 100-1000 ***********
+x=100
+while x<1000:
+    a=x//100
+    b=(x%100)//10
+    c=x%10
+    if (a**3 + b**3 + c**3) == x:
+        print(x)
+    x+=1
+    
+153
+370
+371
+407
+
+******* print numbers based on even odd*********
+x= int(input())
+
+45
+
+while x!=1:
+    if x%2==0:
+        x=x/2
+        print(x)
+    else:
+        x=x*3+1
+        print(x)
+        
+136
+68.0
+34.0
+17.0
+52.0
+26.0
+13.0
+40.0
+20.0
+10.0
+5.0
+16.0
+8.0
+4.0
+2.0
+1.0
+
+****** number is +ve or -ve *******
+
+x= int(input('Enter a number:'))
+
+Enter a number:45
+
+if x>0:
+    print('Positive')
+else:
+    print('Negative of',(-x))
+    
+Positive
+
+x= int(input('Enter a number:'))
+
+Enter a number:-10
+
+if x>0:
+    print('Positive')
+else:
+    print('Negative of',(-x))
+    
+Negative of 10
+
+-----OR----
+x= int(input('Enter a number:'))
+
+Enter a number:45
+
+if x>0:
+    print('Positive')
+elif x<0:
+    print('Negative of',(-x))
+else:
+    print("zero")
+    print("Done")
+    
+Positive
+
+***** large number *********
+x= int(input())
+y= int(input())
+highest=0
+if x > y:
+    print("first")
+    highest=x
+elif y>x:
+    print('second')
+    highest=y
+else:
+    print('same')
+    highest=x=y
+print('square=',highest*highest)
+
+o/p:
+
+%run "C:/Users/Nitin/proj3.py"
+
+10
+
+52
+second
+square= 2704
+
+******** num from 1 to 10*************
+i=0
+
+while i<10:
+    i=i+1
+    print(i)
+    
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+****** odd nm from 1-10******
+i=0
+while i<10:
+    print(i)
+    i=i+2
+    
+1
+3
+5
+7
+9
+
+***** incr by 0.5  *****
+j=1
+
+i=0
+
+k=int(input())
+
+4
+
+while j<=k:
+    print(i)
+    i=i+0.5
+    j+=1
+    
+0
+0.5
+1.0
+1.5
+
+******* mult table ********
+n=int(input('enter the number:'))
+
+enter the number:5
+
+for i in range(1,11):
+    print(n, 'x', i, '=', n*i)
+    
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50
+
+**********************
+n=int(input('enter the number:'))
+
+enter the number:5
+
+for i in range(1,n+1):
+    print(i)
+    
+1
+2
+3
+4
+5
+
+******** print fruits in separate line************
+fruits=input()
+fruits=fruits.split(',')
+for fruit in fruits:
+    print(fruit)
+
+o/p
+
+apple,pear
+apple
+pear
+
+******* print char in separate line*********
+a=input('enter string:')
+
+enter string:box
+
+for i in a:
+    print(i)
+    
+b
+o
+x
+
+************fib series*****************
+n=int(input('enter number:'))
+a,b=0,1
+print(a,',',b,end=', ')
+for i in range(2,n):
+    c=a+b
+    print(c,end=', ')
+    a,b=b,c
+a,b=0,1
+while b<500:
+    if b%4==0 and b>8:
+        print(b)
+        break
+    a,b=b,a+b  
+
+o/p:
+this will genrate fib series till 500 and searches for the number satisfying the if condition 
+answer is  144
+
+************ Lists and its methods ***************
+num=[9,8,2,3,7]
+
+num+=[4,5,6]
+
+num+[4,5,6]
+Out[26]: [9, 8, 2, 3, 7, 4, 5, 6, 4, 5, 6]
+
+num.
+  File "<ipython-input-27-49bb66a5f20b>", line 1
+    num.
+        ^
+SyntaxError: invalid syntax 
+
+num.reverse()
+
+num
+Out[29]: [6, 5, 4, 7, 3, 2, 8, 9]
+
+num.remove(6)
+
+num
+Out[31]: [5, 4, 7, 3, 2, 8, 9]
+
+num=[9,8,2,3,7]
+
+num.append([4,5,6])
+
+num
+Out[34]: [9, 8, 2, 3, 7, [4, 5, 6]]
+
+num[-1]
+Out[35]: [4, 5, 6]
+
+num.extend([4,5,6])
+
+num
+Out[37]: [9, 8, 2, 3, 7, [4, 5, 6], 4, 5, 6]
+
+num.reverse()
+
+num
+Out[39]: [6, 5, 4, [4, 5, 6], 7, 3, 2, 8, 9]
+
+num.remove(6)
+
+num
+Out[41]: [5, 4, [4, 5, 6], 7, 3, 2, 8, 9]
+
+num.remove([4,5,6])
+
+num
+Out[43]: [5, 4, 7, 3, 2, 8, 9]
+
+num=[9,8,2,3,1,2,3,4]
+
+num.count(2)
+Out[45]: 2
+
+num.index(2)
+Out[46]: 2
+
+num.pop()
+Out[47]: 4
+
+num
+Out[48]: [9, 8, 2, 3, 1, 2, 3]
+
+del num[1]
+
+num
+Out[50]: [9, 2, 3, 1, 2, 3]
+
+num.remove(3)
+
+num
+Out[52]: [9, 2, 1, 2, 3]
+
+num.remove(25)
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-53-2801b1534590> in <module>()
+----> 1 num.remove(25)
+
+ValueError: list.remove(x): x not in list 
+
+a=[5,1,6,7,7,10]
+
+a.sort()
+
+a
+Out[56]: [1, 5, 6, 7, 7, 10]
+
+a=[5,1,6,7,7,10]
+
+sorted(a,reverse=True)
+Out[58]: [10, 7, 7, 6, 5, 1]
+
+a
+Out[59]: [5, 1, 6, 7, 7, 10]
+
+num=[9,8,2,3,7]
+
+4 in num
+Out[61]: False
+
+b=8
+
+b in num
+Out[63]: True
+
+b not in num
+Out[64]: False
+
+x=1,2,3
+
+x
+Out[66]: (1, 2, 3)
+
+
+***tuple packing and expansion*****
+
+t=(1,2,3,4,5,6,7,8)
+
+t[0] + t[3] + t[-1]
+Out[68]: 13
+
+t[4]=7
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-69-474eeaa012cf> in <module>()
+----> 1 t[4]=7
+
+TypeError: 'tuple' object does not support item assignment 
+
+a,b=1,2
+
+a,b,c=1,2,3
+
+a,b=1,2,3
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-72-9427327f85ff> in <module>()
+----> 1 a,b=1,2,3
+
+ValueError: too many values to unpack (expected 2) 
+
+a,=[1]
+
+**** tuple ,list function ****
+x=1,2,3
+
+list(x)
+Out[75]: [1, 2, 3]
+
+tuple(list(x))
+Out[76]: (1, 2, 3)
+
+tuple('hello')
+Out[77]: ('h', 'e', 'l', 'l', 'o')
+
+*********slicing *******
+primes=[2,3,5,7,11,13,17]
+
+primes[2:6]
+Out[79]: [5, 7, 11, 13]
+
+primes[:4]
+Out[80]: [2, 3, 5, 7]
+
+num=list(range(14))
+
+num[1:10:2]
+Out[82]: [1, 3, 5, 7, 9]
+
+num[:10]
+Out[83]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+num[10:]
+Out[84]: [10, 11, 12, 13]
+
+num[::2]
+Out[85]: [0, 2, 4, 6, 8, 10, 12]
+
+num[::-1]
+Out[86]: [13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+******************************
+week='sun mon tue thu fri sat'.split()
+
+a='Sunday'
+
+a.lowe() [:3] in week
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-91-8df3e71a3547> in <module>()
+----> 1 a.lowe() [:3] in week
+
+AttributeError: 'str' object has no attribute 'lowe' 
+
+a.lower() [:3] in week
+Out[92]: True
+
+********* dictionaries *****
+mtdict=[]
+
+d={'png':'image file','txt':'text file','py':'python code','java':'bad code','cpp':'complex code'}
+
+d['txt']
+Out[95]: 'text file'
+
+list(d.keys())
+Out[96]: ['png', 'cpp', 'txt', 'java', 'py']
+
+d['bin']='binary file'
+
+d
+Out[100]: 
+{'bin': 'binary file',
+ 'cpp': 'complex code',
+ 'java': 'bad code',
+ 'png': 'image file',
+ 'py': 'python code',
+ 'txt': 'text file'}
+
+d['c++']='c++ code'
+
+d
+Out[103]: 
+{'bin': 'binary file',
+ 'c++': 'c++ code',
+ 'cpp': 'complex code',
+ 'java': 'bad code',
+ 'png': 'image file',
+ 'py': 'python code',
+ 'txt': 'text file'}
+
+del d['java']
+
+d
+Out[105]: 
+{'bin': 'binary file',
+ 'c++': 'c++ code',
+ 'cpp': 'complex code',
+ 'png': 'image file',
+ 'py': 'python code',
+ 'txt': 'text file'}
+
+d.keys()
+Out[106]: dict_keys(['png', 'c++', 'py', 'cpp', 'txt', 'bin'])
+
+d.values()
+Out[107]: dict_values(['image file', 'c++ code', 'python code', 'complex code', 'text file', 'binary file'])
+
+d.get('bin')
+Out[108]: 'binary file'
+
+d.get('junk')
+
+for v in d:
+    print(v)
+    
+png
+c++
+py
+cpp
+txt
+bin
+
+for v in d.values():
+    print(v)
+    
+image file
+c++ code
+python code
+complex code
+text file
+binary file
+
+for k,v in d.items():
+    print(k,v)
+    
+png image file
+c++ c++ code
+py python code
+cpp complex code
+txt text file
+bin binary file
+
+****** sets ******
+a_list=[1,2,1,4,5,6,2]
+
+a=set(a_list)
+
+a
+Out[117]: {1, 2, 4, 5, 6}
+
+f10=set([1,2,3,5,8])
+
+p10=set([2,3,5,7])
+
+//union
+
+f10 | p10
+Out[120]: {1, 2, 3, 5, 7, 8}
+
+//interection
+
+f10 & p10
+Out[121]: {2, 3, 5}
+
+
+
+b=set([1,2])
+
+b < f10
+Out[125]: True
+
+f10 <=f10
+Out[126]: True
+
+1 in f10
+Out[127]: True
+
+4 in f10
+Out[128]: False
+
+for i in f10:
+    print(i)
+    
+8
+1
+2
+3
+5
+//difference
+
+f10 - p10
+Out[122]: {1, 8}
+
+//symmetric difference
+
+f10 ^ p10
+Out[123]: {1, 7, 8}
+
+
+b=set([1,2])
+
+b < f10
+Out[125]: True
+
+f10 <=f10
+Out[126]: True
+
+1 in f10
+Out[127]: True
+
+4in f10
+Out[128]: False
+
+for i in f10:
+    print(i)
+    
+8
+1
+2
+3
+5
+
+**************find duplicates *******
+
+stud={'x':60,'y':60,'z':55}
+
+all_marks=list(stud.values())
+
+unique=set(all_marks)
+
+n_dups=len(all_marks)-len(unique)
+
+print(n_dups,'duplicates')
+1 duplicates
+
+
+********************************
+n=int(input('enter number:'))
+
+enter number:10
+
+x=list(range(n))
+
+print(x)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+********* find odd num an square it *************
+n=int(input('enter number:'))
+
+enter number:20
+
+result=[]
+
+for i in range(1,n,2):
+    result.append(i*i)
+print(result)
+
+[1, 9, 25, 49, 81, 121, 169, 225, 289, 361]
+
+***********converting to tuple ****************
+n=int(input('enter number:'))
+
+enter number:20
+
+result=[]
+
+for i in range(1,n,2):
+    result.append(i*i)
+print(tuple(result))
+
+(1, 9, 25, 49, 81, 121, 169, 225, 289, 361,)
+
+************list and tuple *****************
+x='hello'
+
+print(list(x))
+['h', 'e', 'l', 'l', 'o']
+
+print(tuple(x))
+('h', 'e', 'l', 'l', 'o')
+
+
+************ convert fib series in list ********
+n=int(input('enter number:'))
+
+enter number:10
+
+a,b=0,1
+
+result=[0]
+
+for i in range(n-1):
+    result.append(b)
+    a,b=b,a+b
+print(result)
+
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+		--OR--
+n=int(input('enter number:'))
+
+enter number:10
+
+fib=[0,1]
+
+for i in range(2,n):
+    fib.append(fib[i-1]+fib[i-2])
+print(fib)
+
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+**************square numbers *******************
+
+n=input('enter numbers:')
+
+enter numbers:10 20 30 40 50 60
+
+result=[]
+
+for item in n.split():
+    x=int(item)
+    result.append(x*x)
+print(result)
+
+[100, 400, 900, 1600, 2500, 3600]
+
+// another way
+
+n=input('enter numbers:')
+
+enter numbers:10 20 30 20 10 
+
+result=[]
+
+for item in n.split():
+    x=int(item)
+    result.append((x,x*x))
+print(result)
+
+[(10, 100), (20, 400), (30, 900), (20, 400), (10, 100)]
+
+*********************************************************
+
+data=[(1,2),(2,4),(3,9),(4,16)]
+
+for x,y in data: 
+    print(x,y)
+    
+1 2
+2 4
+3 9
+4 16
+
+for x in data: 
+    print(x)
+    
+(1, 2)
+(2, 4)
+(3, 9)
+(4, 16)
+
+**********************
+text=input()
+
+helloworld
+
+chars=list(text)
+
+chars.sort()
+
+for c in chars:
+    if c not in result:
+        result.append(c)
+print(result)
+
+['a', 'd', 'f', 'h', 'j', 'k', 'n', 'u', 'w', 'e', 'l', 'o', 'r']
+
+	-- OR --
+
+chars=set(input())
+
+hello
+
+print(sorted(chars))
+['e', 'h', 'l', 'o']
+
+***************************************
+n=input('enter numbers:')
+
+enter numbers:1 2 3 0 5 48 6
+
+n
+Out[207]: '1 2 3 0 5 48 6'
+
+d={}
+
+for i in n.split():
+    x=int(i)
+    d[i]=x*x
+    print(d)
+    
+{'1': 1}
+{'1': 1, '2': 4}
+{'1': 1, '3': 9, '2': 4}
+{'1': 1, '3': 9, '0': 0, '2': 4}
+{'1': 1, '3': 9, '0': 0, '2': 4, '5': 25}
+{'1': 1, '0': 0, '2': 4, '3': 9, '5': 25, '48': 2304}
+{'1': 1, '0': 0, '2': 4, '6': 36, '3': 9, '5': 25, '48': 2304}
+
+for i in n.split():
+    x=int(i)
+    d[i]=x*x
+print(d)
+
+{'1': 1, '0': 0, '2': 4, '6': 36, '3': 9, '5': 25, '48': 2304}
+
+
+
+***********************   10-06-2019  *********************
+//functions
+*****************
+def greet():
+    print('Hello world!')
+    
+
+greet()
+Hello world!
+
+******************
+def avg(a,b):
+    return (a+b)/2
+
+
+avg(1,4)
+Out[17]: 2.5
+
+//documentation
+**************
+avg?
+Signature: avg(a, b)
+Docstring: <no docstring>
+File:      c:\users\nitin\<ipython-input-16-444173b2c80b>
+Type:      function
+*****************
+greet?
+Signature: greet()
+Docstring: <no docstring>
+File:      c:\users\nitin\<ipython-input-14-47659fbde1b2>
+Type:      function
+
+**********************************
+//area and perimeter of circle
+def circle(r):
+    pi=3.14
+    area=pi*r*r
+    perimeter=2*pi*r
+    return area,perimeter
+
+
+circle(4)
+Out[21]: (50.24, 25.12)
+
+***********************
+def something():
+    return 1,2
+
+
+x=something()
+
+type(x)
+Out[25]: tuple
+
+x[0]
+Out[26]: 1
+
+x[1]
+Out[27]: 2
+
+//error
+x[2]
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-28-3cc5d4f7cb99> in <module>()
+----> 1 x[2]
+
+IndexError: tuple index out of range 
+
+*********************************
+def welcome(greet,name="world"):
+    print(greet,name)
+    
+
+welcome('Hi','guido')
+Hi guido
+
+welcome('hello') //if not passed 2nd arg it will take specified(default) value
+hello world
+
+******************************************
+//error for default values
+
+def welcome(name="world",greet):
+    print(greet,name)
+  File "<ipython-input-32-87cd73d9f8e3>", line 1
+    def welcome(name="world",greet):
+               
+SyntaxError: non-default argument follows default argument 
+
+***********************************************
+//different ways of using function arguments
+
+def welcome(greet,name="world"):
+    print(greet,name)
+    
+
+welcome('hello','james')
+hello james
+
+welcome('Hi',name='guido')
+Hi guido
+
+welcome(name='guido',greet='Hey')
+Hey guido
+
+//generates an error
+
+welcome(name='guido','Hey')
+  File "<ipython-input-37-d6f9db7a90b6>", line 1
+    welcome(name='guido','Hey')
+                        ^
+SyntaxError: positional argument follows keyword argument 
+
+*************************************************
+def change(q):
+    q=10
+    print(q)
+    
+
+change(1)
+10
+
+//q is local to function so it shows error for this statement
+
+print(q)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-40-9a2128501b7d> in <module>()
+----> 1 print(q)
+
+NameError: name 'q' is not defined 
+
+***********************************
+n=5
+
+def change():
+    n=10
+    print(n)
+    
+
+change()
+10
+
+print(n)
+5
+
+*********
+n=5
+
+def scope():
+    print(n)
+    
+
+scope()
+5
+
+***************
+def change():
+    global n
+    n=10
+    print(n)
+    
+
+change()
+10
+
+print(n)
+10
+
+************************************
+name=['Mr.','Steve','Gosling']
+
+def change_name():
+    name[0]='Dr.'
+    
+
+change_name()
+
+print(name)
+['Dr.', 'Steve', 'Gosling']
+
+*******************************
+name=['Mr.','Steve','Gosling']
+
+def change_name(x):
+    x[0]='Dr.'
+    print(x,'in change')
+    
+
+change_name(name)
+['Dr.', 'Steve', 'Gosling'] in change
+
+print(name)
+['Dr.', 'Steve', 'Gosling']
+
+************************************
+name=['Mr.','Steve','Gosling']
+
+def change_name(x):
+    x=[1,2,3]
+    print(x,'in change')
+    
+
+change_name(name)
+[1, 2, 3] in change
+
+print(name)
+['Mr.', 'Steve', 'Gosling']
+
+************************************
+name=['Mr.','Steve','Gosling']
+
+def change_name(x):
+    x[:]=[1,2,3]
+    print(x,'in change')
+    
+
+change_name(name)
+[1, 2, 3] in change
+
+print(name)
+[1, 2, 3]
+
+*************************************
+def f(x):
+    def g(x):
+        return x+1
+    return g(x)**2
+
+
+f(2)
+Out[87]: 9
+
+**************************
+def f():
+    def g(x):
+        return x+1
+    return g
+
+
+func=f()
+
+func(1)
+Out[91]: 2
+
+//or can also write like this 
+f() (1)
+Out[92]: 2
+
+*******************************
+def prompt():
+    n=input()
+    print('Hello', n)
+    
+
+prompt()
+
+Deepti
+Hello Deepti
+
+//
+def prompt(n):
+    print('Hello', n)
+    
+
+prompt('Deepti')
+Hello Deepti
+
+****************************
+def is_even(n):
+    if n%2==0:
+        return True
+    return False
+
+
+is_even(19)
+Out[105]: False
+
+	--OR--
+
+def is_even(n):
+    return n%2==0
+
+
+is_even(19)
+Out[107]: False
+
+is_even(10)
+Out[108]: True
+
+************************************
+def even_square(n):
+    return n%2==0, n*n
+
+
+even_square(2)
+Out[112]: (True, 4)
+
+even_square(5)
+Out[113]: (False, 25)
+
+*********************************
+def to_lower(a):
+    result=[]
+    for x in a:
+        result.append(x.lower())
+    return result
+
+
+to_lower(['I','am','Batsman'])
+Out[123]: ['i', 'am', 'batsman']
+
+***************************************
+def fib(n=8):
+    a,b=0,1
+    result=[0]
+    for i in range(n-1):
+        result.append(b)
+        a,b=b,a+b
+    return result
+
+
+fib(10)
+Out[125]: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+**************************************************
+def power2():
+    def f(x):
+        return 2**x
+    return f
+
+power2() (1)
+Out[128]: 2
+
+power2() (2)
+Out[129]: 4
+
+------------------------------
+def power(n=2):
+    def f(x):
+        return n**x
+    return f
+
+power(2) (2)
+Out[132]: 4
+
+***********************************
+def f(x):
+    return x**2
+
+
+def apply(f, data):
+    result=[]
+    for x in data:
+        result.append(f(x))
+    return result
+
+
+apply(f,([1,2,3]))
+Out[148]: [1, 4, 9]
+
+***********************************
+some_var = 1
+def fib(n):
+    a, b = 0, 1
+    print(a,end=' ')
+    while b < n:
+        print(b, end=' ')
+        a,b=b,a+b
+
+    
+print(__name__)
+if __name__ == '__main__':
+    fib(10)    
+    
+o/p:
+
+%run "C:/Users/Nitin/fib.py"
+__main__
+0 1 1 2 3 5 8 
+
+--------------------
+import fib
+fib
+
+************** Exceptions **********************
+prompt='enter a number(Q to quit):'
+
+a=input(prompt)
+
+enter a number(Q to quit):number
+
+try:
+    num=int(a)
+    print(num)
+except:
+    if a == 'Q':
+        print('exiting')
+    else:
+        print('wrong input')
+        
+wrong input
+--------------------------------------
+prompt='enter a number(Q to quit):'
+
+a=input(prompt)
+
+enter a number(Q to quit):55
+
+try:
+    num=int(a)
+    print(num)
+except:
+    if a == 'Q':
+        print('exiting')
+    else:
+        print('wrong input')
+        
+55
+---------------------------------------
+prompt='enter a number(Q to quit):'
+
+a=input(prompt)
+
+enter a number(Q to quit):Q
+
+try:
+    num=int(a)
+    print(num)
+except:
+    if a == 'Q':
+        print('exiting')
+    else:
+        print('wrong input')
+        
+exiting
+----------------------------------
+prompt='enter a number:'
+
+while True:
+
+    try:
+        x=int(input(prompt))
+        break
+    except ValueError:
+        print("Inalid input,try again...")
+        
+
+enter a number:number
+Inalid input,try again...
+
+enter a number:..
+Inalid input,try again...
+
+enter a number:45
+
+
+****************   -- 11-06-2019--  *********************
+
+def my_sum(s):
+    total=0
+    for word in s.split():
+        try:
+            total+=int(word)
+        except ValueError:
+            pass
+    return total
+my_sum('5 6')
+Out[18]: 11
+
+*********************************
+def safe_run(f,x):
+    try:
+        f(x)
+    except ValueError:
+        return 'ValueError'
+    except TypeError:
+        return 'TypeError'
+    else:
+        return 'OK'
+safe_run(2.5,'a')
+Out[25]: 'TypeError'
+
+**************** data analysis ***************
+//mean median mode std var
+
+import numpy as np
+
+data=[1.0,4.5,2.3,-0.5,0.5,2.8]
+
+np.mean(data)
+Out[28]: 1.7666666666666666
+
+np.median(data)
+Out[29]: 1.6499999999999999
+
+np.std(data)
+Out[30]: 1.6407992632318622
+
+np.var(data)
+Out[31]: 2.6922222222222221
+
+np.std(data,ddof=1)
+Out[32]: 1.7974055376198959
+
+md=np.arange(16)
+
+md.shape=4,4
+
+md
+Out[38]: 
+array([[ 0,  1,  2,  3],
+       [ 4,  5,  6,  7],
+       [ 8,  9, 10, 11],
+       [12, 13, 14, 15]])
+
+np.mean(md)
+Out[39]: 7.5
+
+np.std(md)
+Out[40]: 4.6097722286464435
+
+np.mean(md,axis=0)
+Out[41]: array([ 6.,  7.,  8.,  9.])
+
+np.mean(md,axis=1)
+Out[42]: array([  1.5,   5.5,   9.5,  13.5])
+
+np.nanmean(data)
+Out[43]: 1.7666666666666666
+
+*********** random numbers **********************
+data = np.random.random(5)
+
+data
+Out[53]: array([ 0.61380332,  0.41937682,  0.3527463 ,  0.78074673,  0.84701242])
+
+x = np.random.random((3,3))
+
+x
+Out[55]: 
+array([[ 0.90396365,  0.66958611,  0.77660684],
+       [ 0.20373087,  0.20326796,  0.62399495],
+       [ 0.76424875,  0.14232251,  0.73118299]])
+
+x.shape
+Out[56]: (3, 3)
+
+np.random.randint(-5,10,size=5)
+Out[57]: array([-1,  5, -4,  9, -5])
+
+np.random.normal(loc=0.0,scale=1.0,size=5)
+Out[58]: array([-0.96413289,  0.5890193 , -1.2836201 , -0.31945753,  0.44180604])
+
+******************* graphs **********************
+
+from matplotlib import pyplot as plt
+
+plt.hist(data);
+
+plt.hist(data);
+
+data=np.random.normal(size=1000)
+
+from matplotlib import pyplot as plt
+
+plt.hist(data);
+
+data=np.random.normal(size=20)
+
+plt.hist(data);
+
+data=np.random.normal(size=10000)
+
+plt.hist(data,normed=True);
+
+plt.hist(data,cumulative=True);
+
+data=np.random.poisson(lam=0.5,size=10000)
+--------------------------------------------
+ax1=plt.subplot(1,2,1)
+
+ax1.hist(data,normed=True)
+Out[74]: 
+(array([  1.20340000e+00,   0.00000000e+00,   6.14200000e-01,
+          0.00000000e+00,   1.54000000e-01,   0.00000000e+00,
+          2.46000000e-02,   0.00000000e+00,   3.60000000e-03,
+          2.00000000e-04]),
+ array([ 0. ,  0.5,  1. ,  1.5,  2. ,  2.5,  3. ,  3.5,  4. ,  4.5,  5. ]),
+ <a list of 10 Patch objects>)
+
+ax2=plt.subplot(1,2,2)
+
+ax2.hist(data,cumulative=True)
+Out[76]: 
+(array([  6017.,   6017.,   9088.,   9088.,   9858.,   9858.,   9981.,
+          9981.,   9999.,  10000.]),
+ array([ 0. ,  0.5,  1. ,  1.5,  2. ,  2.5,  3. ,  3.5,  4. ,  4.5,  5. ]),
+ <a list of 10 Patch objects>)
+----------------------------------------------
+for i in range(1,5):
+    ax=plt.subplot(2,2,i)
+    ax.text(0.0,0.5,'plot number %d' %i)
+
+***************************************************
+data=np.random.randint(0,100,size=5)
+
+data
+Out[86]: array([83, 15, 79, 32, 85])
+
+np.random.shuffle(data)
+
+data
+Out[89]: array([85, 79, 15, 83, 32])
+
+np.random.permutation(10)
+Out[90]: array([9, 4, 8, 1, 0, 3, 2, 5, 7, 6])
+
+np.random.permutation(data)
+Out[91]: array([15, 32, 79, 83, 85])
+
+data=np.random.permutation(5)
+
+data
+Out[93]: array([2, 4, 0, 1, 3])
+
+np.random.choice(data)
+Out[94]: 3
+
+np.random.choice(data,size=5)
+Out[95]: array([4, 4, 2, 3, 2])
+
